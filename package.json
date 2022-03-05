@@ -1,0 +1,22 @@
+{
+  "name": "best-team-ever",
+  "version": "1.0.0",
+  "description": "Module 10 Challenge",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jburg1414/best-team-ever.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jburg1414/best-team-ever/issues"
+  },
+  "homepage": "https://github.com/Jburg1414/best-team-ever#readme"
+}
