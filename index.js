@@ -5,6 +5,7 @@ const Employee = require('./lib/Employee');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
+const createTeamProfile = require('./src/html-template.js');
 let employees = [];
 
 // list of questions for the team builder
@@ -67,29 +68,32 @@ const questions = () => {
         const manager = new Manager(answers.managerName, answers.managerID, answers.managerEmail, answers.officeNumber);
 
         employees.push(manager);
+        console.log(employees);
         addEmployees();
     })
 }; 
 
+// function to ask about adding additional teammates
 const addEmployees = () => {
-    return inquirer.prompt([
+    return inquire.prompt([
         {
             type: 'list',
             name: 'additionalEmployee',
             message: 'Do you want to add an additional employee?',
-            choices: ["Engineer", "Intern", "Build My Team Profile"]
+            choices: ["Engineer", "Intern", "Build My Team Profile"],
         }
     ]) .then ((answers) => {
-        if (answers.additionalEmployee === "Engineer"){
+        if (answers.additionalEmployee == "Engineer"){
             createEngineer();
-        } else if (answers.additionalEmployee === "Intern"){
+        } else if (answers.additionalEmployee == "Intern"){
             createIntern();
-        } else {
+        } else if (answers.additionalEmployee == "Build My Team Profile"){
             createTeamProfile();
         }
     })
 };
 
+// function to create an engineer
 const createEngineer = () => {
     return inquire.prompt([
         {
@@ -153,6 +157,7 @@ const createEngineer = () => {
     })
 };
 
+// function to create an intern
 const createIntern = () => {
     return inquire.prompt([
         {
@@ -211,7 +216,25 @@ const createIntern = () => {
     ]) .then ((answers) => {
         const intern = new Intern(answers.internName, answers.internID, answers.internEmail, answers.internSchool);
 
-        employees.push(Intern);
+        employees.push(intern);
         addEmployees();
     })
 };
+
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, (err) => {
+        if (err) throw err;
+        console.log("Success!")
+    });
+};
+
+function init() {
+    questions().then((answers) => {
+      let data = createTeamProfile(answers);
+      writeToFile("./dist/index.html", data);
+    });
+};
+
+init();
+
+module.exports = [employees];

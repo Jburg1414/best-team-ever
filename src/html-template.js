@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+function createTeamProfile(data) {
+  return `
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,6 +17,10 @@
     </header>
     <main>
         <div class="row" id="employees"></div>
+        $(data)
     </main>
 </body>
 </html>
+`;
+}
+module.exports = createTeamProfile;
