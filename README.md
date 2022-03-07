@@ -20,7 +20,7 @@ npm i, npm jest
 ## Usage
 Download the zip of this repo, navigate to this file in command line, install npm, jest, and inquirer, then prompt node index and answer questions to build team profile.
 
-##Screenshot or Video
+## Screenshot or Video
 [Video-Walkthrough](https://www.youtube.com/watch?v=tDaS_b43Ymc)
 
 ## Credits
