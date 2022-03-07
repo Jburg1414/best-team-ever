@@ -68,7 +68,6 @@ const questions = () => {
         const manager = new Manager(answers.managerName, answers.managerID, answers.managerEmail, answers.officeNumber);
 
         employees.push(manager);
-        console.log(employees);
         addEmployees();
     })
 }; 
@@ -99,12 +98,12 @@ const createEngineer = () => {
         {
             type: 'input',
             name: 'engineerName',
-            message: 'What is your name? (Required)',
+            message: 'What is the engineer name? (Required)',
             validate: (engineerName) => {
                 if (engineerName) {
                     return true;
                 } else {
-                    console.log("Please enter your name!")
+                    console.log("Please enter the engineer name!")
                     return false;
                 }
             }
@@ -112,12 +111,12 @@ const createEngineer = () => {
         {
             type: 'input',
             name: 'engineerID',
-            message: 'What is your ID? (Required)',
+            message: 'What is the engineer ID? (Required)',
             validate: (engineerID) => {
                 if (engineerID) {
                     return true;
                 } else {
-                    console.log("Please enter your ID!")
+                    console.log("Please enter the engineer ID!")
                     return false;
                 }
             }
@@ -125,12 +124,12 @@ const createEngineer = () => {
         {
             type: 'input',
             name: 'engineerEmail',
-            message: 'What is your email address? (Required)',
+            message: 'What is the engineer email address? (Required)',
             validate: (engineerEmail) => {
                 if (engineerEmail) {
                     return true;
                 } else {
-                    console.log("Please enter your email address!")
+                    console.log("Please enter the engineer email address!")
                     return false;
                 }
             }
@@ -138,12 +137,12 @@ const createEngineer = () => {
         {
             type: 'input',
             name: 'engineerGithub',
-            message: 'What is your office number? (Required)',
+            message: 'What is the engineer Github Username? (Required)',
             validate: (engineerGithub) => {
                 if (engineerGithub) {
                     return true;
                 } else {
-                    console.log("Please enter your office number!")
+                    console.log("Please enter the engineer Github username!")
                     return false;
                 }
             }
@@ -163,12 +162,12 @@ const createIntern = () => {
         {
             type: 'input',
             name: 'internName',
-            message: 'What is your name? (Required)',
+            message: 'What is the Intern name? (Required)',
             validate: (internName) => {
                 if (internName) {
                     return true;
                 } else {
-                    console.log("Please enter your name!")
+                    console.log("Please enter the intern name!")
                     return false;
                 }
             }
@@ -176,12 +175,12 @@ const createIntern = () => {
         {
             type: 'input',
             name: 'internID',
-            message: 'What is your ID? (Required)',
+            message: 'What is the intern ID? (Required)',
             validate: (internID) => {
                 if (internID) {
                     return true;
                 } else {
-                    console.log("Please enter your ID!")
+                    console.log("Please enter the intern ID!")
                     return false;
                 }
             }
@@ -189,12 +188,12 @@ const createIntern = () => {
         {
             type: 'input',
             name: 'internEmail',
-            message: 'What is your email address? (Required)',
+            message: 'What is the intern email address? (Required)',
             validate: (internEmail) => {
                 if (internEmail) {
                     return true;
                 } else {
-                    console.log("Please enter your email address!")
+                    console.log("Please enter the intern email address!")
                     return false;
                 }
             }
@@ -202,12 +201,12 @@ const createIntern = () => {
         {
             type: 'input',
             name: 'internSchool',
-            message: 'What is your office number? (Required)',
+            message: 'What school does the intern attend? (Required)',
             validate: (internSchool) => {
                 if (internSchool) {
                     return true;
                 } else {
-                    console.log("Please enter your office number!")
+                    console.log("Please enter the school the intern!")
                     return false;
                 }
             }
@@ -220,6 +219,7 @@ const createIntern = () => {
         addEmployees();
     })
 };
+
 
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => {
