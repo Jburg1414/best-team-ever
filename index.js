@@ -87,7 +87,7 @@ const addEmployees = () => {
         } else if (answers.additionalEmployee == "Intern"){
             createIntern();
         } else if (answers.additionalEmployee == "Build My Team Profile"){
-            createTeamProfile();
+            buildTeam();
         }
     })
 };
@@ -220,6 +220,10 @@ const createIntern = () => {
     })
 };
 
+function buildTeam () {
+    let data = createTeamProfile(employees);
+      writeToFile("./dist/index.html", data);
+  }
 
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => {
@@ -229,12 +233,7 @@ function writeToFile(fileName, data) {
 };
 
 function init() {
-    questions().then((answers) => {
-      let data = createTeamProfile(answers);
-      writeToFile("./dist/index.html", data);
-    });
+    questions()
 };
 
 init();
-
-module.exports = [employees];
